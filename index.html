@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>booify</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="booify.png" alt="booify" width="36" height="36" style="width:36px;height:36px;max-width:36px;max-height:36px;border-radius:8px;object-fit:cover;display:block;">
+                <span class="logo-text">booify</span>
+                <a href="https://x.com/booify67" target="_blank" class="x-logo-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="x-logo-icon">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Home</span>
+                </a>
+            </nav>
+
+            <div class="playlist-section">
+                <div class="section-header">
+                    <h3>Playlists</h3>
+                    <button class="add-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="playlist-list">
+                    <a href="#" class="playlist-item active-playlist">
+                        <div class="playlist-cover gradient-1">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <span>Baby Boo Remixes</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="nav-arrows">
+                    <button class="arrow-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="arrow-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="ca-banner">
+                    <span class="ca-label">CA:</span> <span class="ca-value">coming soon</span> <span class="ca-divider">·</span> <a href="https://x.com/booify67" target="_blank" class="ca-link">@booify67 for updates</a>
+                </div>
+                <div class="user-menu">
+                    <button class="upgrade-btn" id="upgradeBtn">Upgrade</button>
+                    <div class="user-avatar">
+                        <img src="avatar.png" alt="User">
+                    </div>
+                </div>
+            </header>
+
+            <section class="hero-section">
+                <div class="hero-gradient"></div>
+                <div class="hero-content">
+                    <span class="hero-label">PLAYLIST</span>
+                    <h1 class="hero-title">Baby Boo Remixes</h1>
+                    <p class="hero-description">she gon call me baby boo</p>
+                    <div class="hero-meta">
+                        <img src="avatar.png" alt="User" class="meta-avatar">
+                        <span class="meta-name">babyboo</span>
+                        <span class="meta-dot">•</span>
+                        <span class="meta-count">25 songs</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="controls-section">
+                <button class="play-btn-large" id="playBtnLarge">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="play-icon-large">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="pause-icon-large" style="display:none;">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </button>
+                <button class="shuffle-btn active">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
+                    </svg>
+                </button>
+                <button class="icon-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </button>
+                <button class="icon-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                </button>
+            </section>
+
+            <section class="tracks-section">
+                <div class="tracks-header">
+                    <span class="track-number">#</span>
+                    <span class="track-title-header">TITLE</span>
+                    <span class="track-album">ALBUM</span>
+                    <span class="track-date">DATE ADDED</span>
+                    <span class="track-duration">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </span>
+                </div>
+
+                <div class="tracks-list" id="tracksList">
+                    <!-- Tracks will be inserted here by JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Now Playing Bar -->
+    <footer class="now-playing-bar">
+        <div class="now-playing-left">
+            <div class="now-playing-cover" id="nowPlayingCover">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop" alt="Album">
+            </div>
+            <div class="now-playing-info">
+                <span class="now-playing-title" id="nowPlayingTitle">Select a song</span>
+                <span class="now-playing-artist" id="nowPlayingArtist">---</span>
+            </div>
+            <button class="like-btn" id="likeBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="now-playing-center">
+            <div class="playback-controls">
+                <button class="control-btn" id="shuffleBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
+                    </svg>
+                </button>
+                <button class="control-btn" id="prevBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                    </svg>
+                </button>
+                <button class="play-pause-btn" id="playPauseBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="play-icon">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="pause-icon" style="display: none;">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </button>
+                <button class="control-btn" id="nextBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                    </svg>
+                </button>
+                <button class="control-btn" id="repeatBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="progress-container">
+                <span class="time-current" id="timeCurrent">0:00</span>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <div class="progress-handle" id="progressHandle"></div>
+                    </div>
+                </div>
+                <span class="time-total" id="timeTotal">0:00</span>
+            </div>
+        </div>
+
+        <div class="now-playing-right">
+            <button class="control-btn" id="lyricsBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                </svg>
+            </button>
+            <button class="control-btn" id="queueBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"/>
+                </svg>
+            </button>
+            <button class="control-btn" id="devicesBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"/>
+                </svg>
+            </button>
+            <div class="volume-container">
+                <button class="control-btn" id="volumeBtn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="volume-high">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                    </svg>
+                </button>
+                <div class="volume-slider">
+                    <div class="volume-track">
+                        <div class="volume-fill" id="volumeFill"></div>
+                        <div class="volume-handle" id="volumeHandle"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="control-btn" id="fullscreenBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                </svg>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Wallet Modal -->
+    <div class="wallet-modal-overlay" id="walletModalOverlay">
+        <div class="wallet-modal">
+            <button class="wallet-modal-close" id="walletModalClose">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+            <div class="wallet-modal-header">
+                <div class="wallet-modal-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                    </svg>
+                </div>
+                <h2>Upgrade to Premium</h2>
+                <p>Support booify with 0.1 SOL</p>
+            </div>
+            <div class="wallet-modal-body">
+                <div class="wallet-step" id="walletStep1">
+                    <button class="connect-wallet-btn" id="connectWalletBtn">
+                        <img src="https://phantom.app/img/phantom-icon-purple.svg" alt="Phantom" class="phantom-icon" onerror="this.style.display='none'">
+                        <span>Connect Phantom Wallet</span>
+                    </button>
+                    <p class="wallet-hint">Make sure you have Phantom wallet installed</p>
+                </div>
+                <div class="wallet-step hidden" id="walletStep2">
+                    <div class="wallet-connected">
+                        <div class="wallet-status">
+                            <span class="status-dot"></span>
+                            <span>Connected</span>
+                        </div>
+                        <span class="wallet-address" id="walletAddress"></span>
+                    </div>
+                    <div class="donate-info">
+                        <div class="donate-amount">
+                            <span class="amount-label">Amount</span>
+                            <span class="amount-value">0.1 SOL</span>
+                        </div>
+                        <div class="donate-to">
+                            <span class="to-label">To</span>
+                            <span class="to-value">H4Zp...JWXS</span>
+                        </div>
+                    </div>
+                    <button class="donate-btn" id="donateBtn">
+                        <span>Donate 0.1 SOL</span>
+                    </button>
+                </div>
+                <div class="wallet-step hidden" id="walletStep3">
+                    <div class="donate-success">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="success-icon">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <h3>Thank you!</h3>
+                        <p>Your donation was successful</p>
+                        <a class="tx-link" id="txLink" href="#" target="_blank">View Transaction</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden YouTube Player -->
+    <div id="youtube-player" style="position: absolute; top: -9999px; left: -9999px;"></div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
