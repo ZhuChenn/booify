@@ -800,7 +800,7 @@ const walletStep3 = document.getElementById('walletStep3');
 
 let connectedWallet = null;
 
-upgradeBtn.addEventListener('click', () => {
+if (upgradeBtn) upgradeBtn.addEventListener('click', () => {
     walletModalOverlay.classList.add('active');
     // Reset to step 1 if wallet not connected
     if (!connectedWallet) {
@@ -810,11 +810,11 @@ upgradeBtn.addEventListener('click', () => {
     }
 });
 
-walletModalClose.addEventListener('click', () => {
+if (walletModalClose) walletModalClose.addEventListener('click', () => {
     walletModalOverlay.classList.remove('active');
 });
 
-walletModalOverlay.addEventListener('click', (e) => {
+if (walletModalOverlay) walletModalOverlay.addEventListener('click', (e) => {
     if (e.target === walletModalOverlay) {
         walletModalOverlay.classList.remove('active');
     }
